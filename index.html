@@ -40,9 +40,9 @@ a{color:inherit; text-decoration:none;}
 button{font-family:inherit; cursor:pointer;}
 ::selection{background:var(--accent); color:#12100A;}
 :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
-
+ 
 .wrap{display:flex; min-height:100vh;}
-
+ 
 /* ---------- SIDEBAR ---------- */
 .rail{
   width:230px; flex:none;
@@ -78,21 +78,21 @@ button{font-family:inherit; cursor:pointer;}
 .rail-bottom a:hover{color:var(--accent);}
 .rail-bottom .status{font-family:var(--mono); font-size:0.68rem; color:var(--ink-faint); display:flex; align-items:center; gap:6px; margin-top:4px;}
 .rail-bottom .blip{width:6px;height:6px;border-radius:50%; background:#6E9B6B; box-shadow:0 0 0 3px rgba(110,155,107,.15);}
-
+ 
 /* mobile top bar */
 .topbar{display:none;}
-
+ 
 .main{margin-left:230px; width:100%; max-width:1000px;}
 .page{display:none; padding:64px 64px 100px;}
 .page.active{display:block; animation:fadein .35s ease;}
 @keyframes fadein{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
-
+ 
 .eyebrow{font-family:var(--mono); font-size:0.72rem; color:var(--accent); margin-bottom:14px; display:block;}
 h1,h2,h3{font-family:var(--display); font-weight:600; letter-spacing:-0.015em; color:var(--ink);}
 .section-head{max-width:640px; margin-bottom:44px;}
 .section-head h2{font-size:1.9rem; margin-bottom:10px;}
 .section-head p{color:var(--ink-dim); font-size:0.98rem; max-width:560px;}
-
+ 
 /* ---------- HOME ---------- */
 .hero{display:grid; grid-template-columns:1.1fr 0.9fr; gap:50px; align-items:center; min-height:70vh;}
 .hero-left .avail{
@@ -113,7 +113,7 @@ h1,h2,h3{font-family:var(--display); font-weight:600; letter-spacing:-0.015em; c
 .btn-primary:hover{background:#dd9a48;}
 .btn-ghost{border-color:var(--line); color:var(--ink);}
 .btn-ghost:hover{border-color:var(--ink-dim);}
-
+ 
 /* terminal */
 .term{
   background:var(--bg-raised); border:1px solid var(--line); border-radius:6px;
@@ -133,20 +133,20 @@ h1,h2,h3{font-family:var(--display); font-weight:600; letter-spacing:-0.015em; c
 }
 .term-input-row input:focus{outline:none;}
 .term-hint{color:var(--ink-faint); font-size:0.68rem; padding:0 16px 12px;}
-
+ 
 /* stats strip */
 .stats{display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin-top:64px;}
 .stat{padding:26px 22px; border-right:1px solid var(--line);}
 .stat:last-child{border-right:none;}
 .stat .num{font-family:var(--display); font-size:1.9rem; color:var(--ink); font-weight:600;}
 .stat .lbl{font-family:var(--mono); font-size:0.7rem; color:var(--ink-faint); margin-top:4px;}
-
+ 
 /* ---------- ABOUT ---------- */
 .focus-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:36px;}
 .focus-card{border:1px solid var(--line); border-radius:var(--radius); padding:20px; background:var(--bg-raised);}
 .focus-card h3{font-size:0.98rem; margin-bottom:6px; font-family:var(--body); font-weight:600;}
 .focus-card p{font-size:0.85rem; color:var(--ink-dim);}
-
+ 
 .edu-item{border-left:2px solid var(--line); padding:4px 0 26px 22px; position:relative;}
 .edu-item::before{content:''; position:absolute; left:-5px; top:6px; width:8px;height:8px;border-radius:50%;background:var(--accent);}
 .edu-item .dur{font-family:var(--mono); font-size:0.7rem; color:var(--ink-faint); margin-bottom:6px;}
@@ -154,7 +154,7 @@ h1,h2,h3{font-family:var(--display); font-weight:600; letter-spacing:-0.015em; c
 .edu-item .school{color:var(--ink-dim); font-size:0.88rem; margin-bottom:8px;}
 .edu-item .meta{font-size:0.83rem; color:var(--ink-dim);}
 .edu-item .cgpa{color:var(--accent); font-family:var(--mono);}
-
+ 
 /* ---------- EXPERIENCE ---------- */
 .timeline{border-left:2px solid var(--line); margin-left:4px;}
 .tl-item{position:relative; padding:0 0 42px 32px;}
@@ -168,7 +168,7 @@ h1,h2,h3{font-family:var(--display); font-weight:600; letter-spacing:-0.015em; c
 .tl-item li a{color:var(--accent); border-bottom:1px solid var(--accent-dim);}
 .tag-row{display:flex; flex-wrap:wrap; gap:7px; margin-top:14px;}
 .tag{font-family:var(--mono); font-size:0.7rem; color:var(--ink-dim); border:1px solid var(--line); padding:4px 9px; border-radius:20px;}
-
+ 
 /* ---------- PROJECTS ---------- */
 .filter-row{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:32px;}
 .filter-row button{
@@ -191,7 +191,7 @@ h1,h2,h3{font-family:var(--display); font-weight:600; letter-spacing:-0.015em; c
 .proj-card .foot .view{color:var(--ink); display:flex; align-items:center; gap:6px;}
 .proj-card .foot .arrow{transition:transform .15s;}
 .proj-card:hover .foot .arrow{transform:translateX(4px);}
-
+ 
 /* project detail */
 .pd-back{font-family:var(--mono); font-size:0.78rem; color:var(--ink-dim); display:inline-flex; align-items:center; gap:6px; margin-bottom:30px; background:none; border:none;}
 .pd-back:hover{color:var(--accent);}
@@ -209,7 +209,7 @@ h1,h2,h3{font-family:var(--display); font-weight:600; letter-spacing:-0.015em; c
 .stack-cat h4{font-family:var(--mono); font-size:0.7rem; color:var(--accent); margin-bottom:8px;}
 .stack-cat .items{display:flex; flex-wrap:wrap; gap:6px;}
 .stack-cat .items span{font-size:0.78rem; color:var(--ink); border:1px solid var(--line); padding:4px 9px; border-radius:var(--radius);}
-
+ 
 /* ---------- SKILLS ---------- */
 .skill-groups{display:flex; flex-direction:column; gap:36px;}
 .skill-group h3{font-family:var(--mono); font-size:0.75rem; color:var(--accent); margin-bottom:14px;}
@@ -219,7 +219,7 @@ h1,h2,h3{font-family:var(--display); font-weight:600; letter-spacing:-0.015em; c
   background:var(--bg-raised); transition:border-color .15s, color .15s;
 }
 .skill-chips span:hover{border-color:var(--accent); color:var(--accent);}
-
+ 
 /* ---------- ACHIEVEMENTS ---------- */
 .ach-list{display:flex; flex-direction:column;}
 .ach-row{display:grid; grid-template-columns:150px 1fr; gap:24px; padding:20px 0; border-top:1px solid var(--line);}
@@ -227,13 +227,13 @@ h1,h2,h3{font-family:var(--display); font-weight:600; letter-spacing:-0.015em; c
 .ach-row .tag2{font-family:var(--mono); font-size:0.7rem; color:var(--accent);}
 .ach-row h3{font-size:1rem; margin-bottom:5px; font-family:var(--body); font-weight:600;}
 .ach-row p{font-size:0.85rem; color:var(--ink-dim);}
-
+ 
 .cert-list{display:flex; flex-direction:column; gap:12px;}
 .cert-card{border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px; display:flex; justify-content:space-between; align-items:center; background:var(--bg-raised);}
 .cert-card h3{font-size:0.95rem; font-weight:600; margin-bottom:4px;}
 .cert-card p{font-size:0.82rem; color:var(--ink-dim);}
 .cert-card a{font-family:var(--mono); font-size:0.75rem; color:var(--accent); border:1px solid var(--accent-dim); padding:6px 12px; border-radius:20px;}
-
+ 
 /* ---------- CONTACT ---------- */
 .contact-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:10px;}
 .contact-card{border:1px solid var(--line); border-radius:6px; padding:24px; background:var(--bg-raised); display:flex; flex-direction:column; gap:10px;}
@@ -241,15 +241,15 @@ h1,h2,h3{font-family:var(--display); font-weight:600; letter-spacing:-0.015em; c
 .contact-card .v{font-size:1rem;}
 .contact-cta{margin-top:48px; padding:36px; border:1px solid var(--line); border-radius:6px; background:var(--bg-raised); text-align:left;}
 .contact-cta h2{font-size:1.5rem; margin-bottom:14px;}
-
+ 
 /* resume */
 .resume-actions{display:flex; gap:14px; margin-bottom:30px;}
 .resume-frame{border:1px solid var(--line); border-radius:6px; overflow:hidden; height:70vh; background:var(--bg-raised); display:flex; align-items:center; justify-content:center; color:var(--ink-faint); font-family:var(--mono); font-size:0.85rem; text-align:center; padding:20px;}
-
+ 
 footer.site-footer{border-top:1px solid var(--line); padding:40px 64px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; color:var(--ink-faint); font-size:0.8rem;}
 footer.site-footer .flinks{display:flex; gap:18px;}
 footer.site-footer a:hover{color:var(--accent);}
-
+ 
 /* ---------- 3D CANVASES ---------- */
 .hero{position:relative;}
 .hero-canvas-wrap{
@@ -265,7 +265,7 @@ footer.site-footer a:hover{color:var(--accent);}
   position:absolute; inset:0; z-index:-1; opacity:0.5; pointer-events:none;
 }
 .hero-bg-field canvas{width:100%; height:100%; display:block;}
-
+ 
 .orbit-wrap{
   position:relative; height:460px; border-radius:8px; overflow:hidden; margin-top:20px;
   border:1px solid var(--line); background:radial-gradient(circle at 50% 50%, #171a1e 0%, #0F1113 75%);
@@ -279,7 +279,7 @@ footer.site-footer a:hover{color:var(--accent);}
   transform:translate(-50%,-50%); white-space:nowrap; transition:opacity .15s;
 }
 .orbit-hint{font-family:var(--mono); font-size:0.68rem; color:var(--ink-faint); margin-top:10px;}
-
+ 
 /* 3D tilt project cards */
 .proj-card{transform-style:preserve-3d; will-change:transform;}
 .proj-card .tilt-glow{
@@ -287,10 +287,10 @@ footer.site-footer a:hover{color:var(--accent);}
   background:radial-gradient(180px circle at var(--mx,50%) var(--my,50%), rgba(201,138,60,0.14), transparent 60%);
 }
 .proj-card:hover .tilt-glow{opacity:1;}
-
+ 
 /* mobile menu button */
 .menu-btn{display:none;}
-
+ 
 @media(max-width:980px){
   .rail{display:none;}
   .topbar{
@@ -324,13 +324,13 @@ footer.site-footer a:hover{color:var(--accent);}
 </style>
 </head>
 <body>
-
+ 
 <div class="topbar">
   <span class="mark">deep<span>.</span>mundra</span>
   <button class="menu-btn" id="menuBtn" aria-label="Open menu"><i></i><i></i><i></i></button>
 </div>
 <div class="mobile-menu" id="mobileMenu"></div>
-
+ 
 <div class="wrap">
   <aside class="rail">
     <div class="rail-top">
@@ -345,10 +345,10 @@ footer.site-footer a:hover{color:var(--accent);}
       <div class="status"><span class="blip"></span> Jaipur, India — open to work</div>
     </div>
   </aside>
-
+ 
   <main class="main" id="main"></main>
 </div>
-
+ 
 <script>
 /* ============ DATA — sourced strictly from resume ============ */
 const DATA = {
@@ -519,7 +519,7 @@ const DATA = {
     { name:"Synergy Hackathon — Winner Certificate", org:"Manipal University Jaipur × HPE", date:"Jul 2026", link:null }
   ]
 };
-
+ 
 /* ============ ROUTER ============ */
 const NAV = [
   {id:"home", label:"Home"},
@@ -531,9 +531,9 @@ const NAV = [
   {id:"resume", label:"Resume"},
   {id:"contact", label:"Contact"},
 ];
-
+ 
 let state = { route: "home", projectSlug: null, filter: "All" };
-
+ 
 function setRoute(route, slug){
   state.route = route;
   state.projectSlug = slug || null;
@@ -541,12 +541,12 @@ function setRoute(route, slug){
   window.scrollTo(0,0);
   document.getElementById("mobileMenu").classList.remove("open");
 }
-
+ 
 /* ============ RENDER ============ */
 function railNavHTML(){
   return NAV.map(n => `<button data-route="${n.id}" class="${state.route===n.id?'active':''}"><span class="dot"></span>${n.label}</button>`).join("");
 }
-
+ 
 function renderNav(){
   document.getElementById("railNav").innerHTML = railNavHTML();
   document.getElementById("railNav").querySelectorAll("button").forEach(b=>{
@@ -561,7 +561,7 @@ function renderNav(){
     document.getElementById("linkedinLink").style.display = "none";
   }
 }
-
+ 
 function pageHome(){
   return `
   <section class="hero">
@@ -600,7 +600,7 @@ function pageHome(){
   </div>
   `;
 }
-
+ 
 function pageAbout(){
   return `
   <div class="section-head">
@@ -608,14 +608,14 @@ function pageAbout(){
     <h2>Who I am</h2>
     <p>A Computer Science student who prefers shipping working, on-device systems over slideware — offline AI assistants, retrieval pipelines, and full-stack tools built to survive outside a demo environment.</p>
   </div>
-
+ 
   <div class="focus-grid">
     <div class="focus-card"><h3>Offline &amp; On-Device AI</h3><p>Local LLM fine-tuning, Qwen2.5, Ollama-based deployment, and speech-to-text pipelines that run fully on-device.</p></div>
     <div class="focus-card"><h3>Retrieval & RAG</h3><p>Hybrid retrieval (BM25 + embeddings + FAISS) with re-ranking and confidence-gated responses to reduce hallucination.</p></div>
     <div class="focus-card"><h3>Full-Stack Development</h3><p>React.js, Django, Flask, and Next.js applications backed by MongoDB, MySQL, and PostgreSQL.</p></div>
     <div class="focus-card"><h3>Applied Machine Learning</h3><p>Computer vision (OpenCV, YOLO), classical ML with scikit-learn, and deep learning with PyTorch/TensorFlow.</p></div>
   </div>
-
+ 
   <div class="section-head" style="margin-top:64px;">
     <span class="eyebrow">EDUCATION</span>
     <h2>Academic timeline</h2>
@@ -630,7 +630,7 @@ function pageAbout(){
   `).join("")}
   `;
 }
-
+ 
 function pageExperience(){
   return `
   <div class="section-head">
@@ -651,12 +651,12 @@ function pageExperience(){
   </div>
   `;
 }
-
+ 
 function projectCategories(){
   const cats = new Set(DATA.projects.map(p=>p.category));
   return ["All", ...cats];
 }
-
+ 
 function pageProjects(){
   const cats = projectCategories();
   const filtered = state.filter === "All" ? DATA.projects : DATA.projects.filter(p=>p.category===state.filter);
@@ -685,7 +685,7 @@ function pageProjects(){
   </div>
   `;
 }
-
+ 
 function pageProjectDetail(slug){
   const p = DATA.projects.find(x=>x.slug===slug);
   if(!p) return `<p>Project not found.</p>`;
@@ -701,17 +701,17 @@ function pageProjectDetail(slug){
     <a class="btn btn-primary" href="${p.github}" target="_blank" rel="noopener">View on GitHub →</a>
     ${p.demo ? `<a class="btn btn-ghost" href="${p.demo}" target="_blank" rel="noopener">Live Demo</a>` : ""}
   </div>
-
+ 
   <div class="pd-block">
     <h2>Overview</h2>
     <p>${p.description}</p>
   </div>
-
+ 
   <div class="pd-block">
     <h2>Key Features</h2>
     <div class="feature-list">${p.features.map(f=>`<div class="f">${f}</div>`).join("")}</div>
   </div>
-
+ 
   <div class="pd-block">
     <h2>Technology Stack</h2>
     <div class="stack-cats">
@@ -722,7 +722,7 @@ function pageProjectDetail(slug){
   </div>
   `;
 }
-
+ 
 function pageSkills(){
   return `
   <div class="section-head">
@@ -742,7 +742,7 @@ function pageSkills(){
   </div>
   `;
 }
-
+ 
 function pageAchievements(){
   return `
   <div class="section-head">
@@ -757,7 +757,7 @@ function pageAchievements(){
       </div>
     `).join("")}
   </div>
-
+ 
   <div class="section-head" style="margin-top:56px;">
     <span class="eyebrow">CERTIFICATIONS</span>
     <h2>Certificates</h2>
@@ -772,7 +772,7 @@ function pageAchievements(){
   </div>
   `;
 }
-
+ 
 function pageResume(){
   return `
   <div class="section-head">
@@ -789,7 +789,7 @@ function pageResume(){
   </div>
   `;
 }
-
+ 
 function pageContact(){
   return `
   <div class="section-head">
@@ -812,7 +812,7 @@ function pageContact(){
   </div>
   `;
 }
-
+ 
 function pageFooter(){
   return `
   <footer class="site-footer">
@@ -824,7 +824,7 @@ function pageFooter(){
     </div>
   </footer>`;
 }
-
+ 
 function render(){
   renderNav();
   let body = "";
@@ -843,7 +843,7 @@ function render(){
   document.getElementById("main").innerHTML = `<div class="page active">${body}</div>${pageFooter()}`;
   bindPageEvents();
 }
-
+ 
 function bindPageEvents(){
   document.querySelectorAll(".proj-card").forEach(card=>{
     card.addEventListener("click", ()=> setRoute("project-detail", card.dataset.slug));
@@ -863,7 +863,7 @@ function bindPageEvents(){
   if(state.route === "home") initHero3D();
   if(state.route === "skills") initOrbit3D();
 }
-
+ 
 /* ============ TILT (CSS 3D, lightweight — used everywhere incl. mobile) ============ */
 function bindTilt(card){
   const max = 6; // degrees, restrained
@@ -881,12 +881,12 @@ function bindTilt(card){
     card.style.transform = "";
   });
 }
-
+ 
 /* ============ THREE.JS SCENES ============ */
 const REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const LOW_POWER = window.innerWidth < 760;
 let scenes = { hero:null, bg:null, orbit:null };
-
+ 
 function teardown3D(){
   Object.keys(scenes).forEach(k=>{
     const s = scenes[k];
@@ -895,12 +895,12 @@ function teardown3D(){
     scenes[k] = null;
   });
 }
-
+ 
 function initHero3D(){
   const wrap = document.getElementById("heroCanvasWrap");
   if(!wrap || typeof THREE === "undefined") return;
   const w = wrap.clientWidth, h = wrap.clientHeight;
-
+ 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(55, w/h, 0.1, 100);
   camera.position.set(0, 0, 9);
@@ -908,7 +908,7 @@ function initHero3D(){
   renderer.setSize(w, h);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, LOW_POWER ? 1 : 1.6));
   wrap.appendChild(renderer.domElement);
-
+ 
   // Central AI core: layered wireframe icosahedrons
   const core = new THREE.Group();
   const geo1 = new THREE.IcosahedronGeometry(1.7, 1);
@@ -920,7 +920,7 @@ function initHero3D(){
   const mesh2 = new THREE.Mesh(geo2, mat2);
   core.add(mesh2);
   scene.add(core);
-
+ 
   // Neural node network (particles + connecting lines) surrounding the core
   const NODE_COUNT = LOW_POWER ? 26 : 46;
   const nodePositions = [];
@@ -938,7 +938,7 @@ function initHero3D(){
   const nodeMat = new THREE.PointsMaterial({ color:0xECE9E3, size:0.06, transparent:true, opacity:0.8 });
   const points = new THREE.Points(nodeGeo, nodeMat);
   scene.add(points);
-
+ 
   // connecting lines between nearby nodes
   const lineVerts = [];
   for(let i=0;i<nodePositions.length;i++){
@@ -952,7 +952,7 @@ function initHero3D(){
   const lineMat = new THREE.LineBasicMaterial({ color:0x8C6530, transparent:true, opacity:0.22 });
   const lines = new THREE.LineSegments(lineGeo, lineMat);
   scene.add(lines);
-
+ 
   let mx = 0, my = 0;
   const onMove = (e)=>{
     const r = wrap.getBoundingClientRect();
@@ -960,10 +960,10 @@ function initHero3D(){
     my = ((e.clientY - r.top)/r.height - 0.5) * 2;
   };
   wrap.addEventListener("mousemove", onMove);
-
+ 
   const s = { renderer, raf:null };
   scenes.hero = s;
-
+ 
   function animate(){
     s.raf = requestAnimationFrame(animate);
     if(!REDUCED_MOTION){
@@ -979,12 +979,12 @@ function initHero3D(){
   }
   animate();
 }
-
+ 
 function initOrbit3D(){
   const wrap = document.getElementById("orbitWrap");
   if(!wrap || typeof THREE === "undefined") return;
   const w = wrap.clientWidth, h = wrap.clientHeight;
-
+ 
   // pick representative technologies actually present in resume skills
   const nodeList = [
     {label:"Python", cat:"Language"}, {label:"React.js", cat:"Framework"},
@@ -994,7 +994,7 @@ function initOrbit3D(){
     {label:"OpenCV", cat:"ML/AI"}, {label:"RAG", cat:"Gen AI"},
     {label:"Node.js", cat:"Framework"}, {label:"MySQL", cat:"Database"},
   ];
-
+ 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(50, w/h, 0.1, 100);
   camera.position.set(0,0,10);
@@ -1002,14 +1002,14 @@ function initOrbit3D(){
   renderer.setSize(w,h);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, LOW_POWER ? 1 : 1.6));
   wrap.appendChild(renderer.domElement);
-
+ 
   const group = new THREE.Group();
   scene.add(group);
-
+ 
   const coreGeo = new THREE.SphereGeometry(0.9, 24, 24);
   const coreMat = new THREE.MeshBasicMaterial({ color:0xC98A3C, wireframe:true, transparent:true, opacity:0.6 });
   group.add(new THREE.Mesh(coreGeo, coreMat));
-
+ 
   const nodeMeshes = [];
   const radius = 3.6;
   nodeList.forEach((n, i)=>{
@@ -1027,12 +1027,12 @@ function initOrbit3D(){
     mesh.userData = n;
     group.add(mesh);
     nodeMeshes.push(mesh);
-
+ 
     const lg = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,0,0), pos]);
     const lm = new THREE.LineBasicMaterial({ color:0x8C6530, transparent:true, opacity:0.3 });
     group.add(new THREE.Line(lg, lm));
   });
-
+ 
   // drag to rotate
   let dragging = false, lastX=0, lastY=0, velX=0.002, velY=0.0008;
   wrap.addEventListener("mousedown", (e)=>{ dragging=true; lastX=e.clientX; lastY=e.clientY; });
@@ -1055,7 +1055,7 @@ function initOrbit3D(){
     group.rotation.x += dy*0.005;
     lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
   }, {passive:true});
-
+ 
   // hover label via raycasting
   const raycaster = new THREE.Raycaster();
   const mouseV = new THREE.Vector2();
@@ -1084,10 +1084,10 @@ function initOrbit3D(){
       nodeMeshes.forEach(m=> m.material.color.set(0xECE9E3));
     }
   });
-
+ 
   const s = { renderer, raf:null };
   scenes.orbit = s;
-
+ 
   function animate(){
     s.raf = requestAnimationFrame(animate);
     if(!dragging && !REDUCED_MOTION){
@@ -1097,7 +1097,7 @@ function initOrbit3D(){
   }
   animate();
 }
-
+ 
 /* ============ TERMINAL ============ */
 function setupTerminal(){
   const input = document.getElementById("termInput");
@@ -1133,7 +1133,7 @@ function setupTerminal(){
     line.innerHTML = `<span class="prompt-sym">&gt;</span>${cmd}\n${out}`;
     body.appendChild(line);
     body.scrollTop = body.scrollHeight;
-
+ 
     if(["about","experience","projects","skills","achievements","contact"].includes(c)){
       setTimeout(()=> setRoute(c === "contact" ? "contact" : c), 650);
     }
@@ -1145,8 +1145,9 @@ function setupTerminal(){
     }
   });
 }
-
+ 
 render();
 </script>
 </body>
 </html>
+ 

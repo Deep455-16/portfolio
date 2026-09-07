@@ -24,6 +24,17 @@
   --display:'Space Grotesk', sans-serif;
   --body:'Inter', sans-serif;
 }
+html[data-theme="light"]{
+  --bg:#F4F2ED;
+  --bg-raised:#FFFFFF;
+  --line:#DEDAD0;
+  --ink:#1B1A17;
+  --ink-dim:#6B665D;
+  --ink-faint:#A6A096;
+  --accent:#B36F1E;
+  --accent-dim:#D9A863;
+  --accent-tint:#F1E2CB;
+}
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{
@@ -32,6 +43,7 @@ body{
   font-family:var(--body);
   line-height:1.55;
   -webkit-font-smoothing:antialiased;
+  transition:background .25s ease, color .25s ease;
 }
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
@@ -78,15 +90,43 @@ button{font-family:inherit; cursor:pointer;}
 .rail-bottom a:hover{color:var(--accent);}
 .rail-bottom .status{font-family:var(--mono); font-size:0.68rem; color:var(--ink-faint); display:flex; align-items:center; gap:6px; margin-top:4px;}
 .rail-bottom .blip{width:6px;height:6px;border-radius:50%; background:#6E9B6B; box-shadow:0 0 0 3px rgba(110,155,107,.15);}
+.theme-toggle{
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  border:1px solid var(--line); border-radius:20px; padding:5px 6px; margin-bottom:6px;
+  background:var(--bg-raised);
+}
+.theme-toggle span{font-family:var(--mono); font-size:0.68rem; color:var(--ink-dim); padding-left:6px;}
+.theme-toggle button{
+  background:var(--bg); border:1px solid var(--line); color:var(--ink-dim);
+  width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:0.78rem; transition:background .15s, color .15s;
+}
+.theme-toggle button.active{background:var(--accent); color:#161207; border-color:var(--accent);}
 
 /* mobile top bar */
 .topbar{display:none;}
 .mobile-menu{display:none;}
 
-.main{margin-left:230px; width:100%; max-width:1000px;}
+.main{margin-left:230px; width:100%; max-width:1120px; position:relative; z-index:1;}
 .page{display:none; padding:64px 64px 100px;}
 .page.active{display:block; animation:fadein .35s ease;}
 @keyframes fadein{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+/* ---------- AMBIENT SIDE PANEL (fills dead space on wide viewports) ---------- */
+.side-deco{
+  position:fixed; top:0; right:0; bottom:0; width:280px;
+  border-left:1px solid var(--line); z-index:2; overflow:hidden; display:none;
+  background:var(--bg);
+}
+.side-deco canvas{width:100%; height:100%; display:block;}
+.side-deco .deco-label{position:absolute; top:32px; left:24px; right:24px; font-family:var(--mono); font-size:0.66rem; color:var(--ink-faint); letter-spacing:0.03em; z-index:2;}
+.side-deco .deco-readout{position:absolute; bottom:32px; left:24px; right:24px; font-family:var(--mono); font-size:0.68rem; color:var(--ink-faint); z-index:2; line-height:2.1; border-top:1px solid var(--line); padding-top:14px;}
+.side-deco .deco-readout b{color:var(--ink); font-weight:500;}
+.side-deco .deco-readout .accentv{color:var(--accent);}
+@media(min-width:1480px){
+  .side-deco{display:block;}
+  .main{margin-right:280px;}
+}
 
 .eyebrow{font-family:var(--mono); font-size:0.72rem; color:var(--accent); margin-bottom:14px; display:block;}
 h1,h2,h3{font-family:var(--display); font-weight:600; letter-spacing:-0.015em; color:var(--ink);}
@@ -143,18 +183,21 @@ h1,h2,h3{font-family:var(--display); font-weight:600; letter-spacing:-0.015em; c
 .stat .lbl{font-family:var(--mono); font-size:0.7rem; color:var(--ink-faint); margin-top:4px;}
 
 /* ---------- ABOUT ---------- */
-.focus-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:36px;}
-.focus-card{border:1px solid var(--line); border-radius:var(--radius); padding:20px; background:var(--bg-raised);}
-.focus-card h3{font-size:0.98rem; margin-bottom:6px; font-family:var(--body); font-weight:600;}
-.focus-card p{font-size:0.85rem; color:var(--ink-dim);}
+.focus-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:36px;}
+.focus-card{border:1px solid var(--line); border-radius:6px; padding:26px; background:var(--bg-raised); transition:border-color .15s, transform .15s;}
+.focus-card:hover{border-color:var(--accent-dim); transform:translateY(-2px);}
+.focus-card h3{font-size:1.05rem; margin-bottom:8px; font-family:var(--body); font-weight:600;}
+.focus-card p{font-size:0.88rem; color:var(--ink-dim);}
 
-.edu-item{border-left:2px solid var(--line); padding:4px 0 26px 22px; position:relative;}
-.edu-item::before{content:''; position:absolute; left:-5px; top:6px; width:8px;height:8px;border-radius:50%;background:var(--accent);}
-.edu-item .dur{font-family:var(--mono); font-size:0.7rem; color:var(--ink-faint); margin-bottom:6px;}
-.edu-item h3{font-size:1.05rem; margin-bottom:3px;}
-.edu-item .school{color:var(--ink-dim); font-size:0.88rem; margin-bottom:8px;}
-.edu-item .meta{font-size:0.83rem; color:var(--ink-dim);}
-.edu-item .cgpa{color:var(--accent); font-family:var(--mono);}
+.edu-card{
+  display:grid; grid-template-columns:180px 1fr; gap:24px;
+  border:1px solid var(--line); border-radius:6px; padding:26px; background:var(--bg-raised);
+  margin-bottom:14px;
+}
+.edu-card .dur{font-family:var(--mono); font-size:0.72rem; color:var(--accent);}
+.edu-card h3{font-size:1.15rem; margin-bottom:5px;}
+.edu-card .school{color:var(--ink-dim); font-size:0.9rem; margin-bottom:10px;}
+.edu-card .cgpa{color:var(--accent); font-family:var(--mono);}
 
 /* ---------- EXPERIENCE ---------- */
 .timeline{border-left:2px solid var(--line); margin-left:4px;}
@@ -328,7 +371,10 @@ footer.site-footer a:hover{color:var(--accent);}
 
 <div class="topbar">
   <span class="mark">deep<span>.</span>mundra</span>
-  <button class="menu-btn" id="menuBtn" aria-label="Open menu"><i></i><i></i><i></i></button>
+  <div style="display:flex; align-items:center; gap:10px;">
+    <button class="menu-btn" id="themeBtnMobile" aria-label="Toggle theme" style="border:1px solid var(--line); border-radius:50%; width:30px; height:30px; align-items:center; justify-content:center; flex-direction:row;">◐</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu"><i></i><i></i><i></i></button>
+  </div>
 </div>
 <div class="mobile-menu" id="mobileMenu"></div>
 
@@ -340,6 +386,11 @@ footer.site-footer a:hover{color:var(--accent);}
       <nav class="rail-nav" id="railNav"></nav>
     </div>
     <div class="rail-bottom">
+      <div class="theme-toggle" id="themeToggle">
+        <span>THEME</span>
+        <button data-t="dark" aria-label="Dark theme">●</button>
+        <button data-t="light" aria-label="Light theme">○</button>
+      </div>
       <a href="https://github.com/Deep455-16" target="_blank" rel="noopener">GitHub ↗</a>
       <a href="#" id="linkedinLink" target="_blank" rel="noopener">LinkedIn ↗</a>
       <a href="mailto:mundradeep17@gmail.com">Email ↗</a>
@@ -348,6 +399,10 @@ footer.site-footer a:hover{color:var(--accent);}
   </aside>
 
   <main class="main" id="main"></main>
+</div>
+<div class="side-deco" id="sideDeco">
+  <span class="deco-label">SYSTEM.STATUS — live readout</span>
+  <div class="deco-readout" id="decoReadout"></div>
 </div>
 
 <script>
@@ -422,7 +477,7 @@ const DATA = {
         "One-click local installer bundling Python, Node.js, and Ollama",
         "Containerized with Docker and Nginx for VPS deployment"
       ],
-      github: "https://github.com/Deep455-16",
+      github: "https://github.com/Deep455-16/NovaTrust-Banking-RiskShield-Manager.git",
       demo: null
     },
     {
@@ -445,7 +500,7 @@ const DATA = {
         "Trained on the FER-2013 and AffectNet datasets",
         "Python/OpenCV backend with a React.js frontend"
       ],
-      github: "https://github.com/Deep455-16",
+      github: "https://github.com/Deep455-16/EXPRESSION-ANALYZER.git",
       demo: null
     },
     {
@@ -468,7 +523,7 @@ const DATA = {
         "Flask/Django backend with MongoDB and MySQL",
         "React.js and Tailwind CSS frontend"
       ],
-      github: "https://github.com/Deep455-16",
+      github: "https://github.com/Deep455-16/IOT-Generator.git",
       demo: null
     },
     {
@@ -491,7 +546,7 @@ const DATA = {
         "TF-IDF semantic matching and stylometric AI-authorship detection",
         "Produces an explainable Semantic Validity Score"
       ],
-      github: "https://github.com/Deep455-16",
+      github: "https://github.com/Deep455-16/SafeHire-AI.git",
       demo: null
     }
   ],
@@ -516,7 +571,7 @@ const DATA = {
     { tag:"Award", title:"Student Excellence Awardee", desc:"" }
   ],
   certifications: [
-    { name:"Multi-Language Display Translator — Project Certificate", org:"Secure Meters Ltd.", date:"2026", link:"https://drive.google.com/file/d/1N1_gypt6cgzQCuePBW7KhmIxcK3TtQEp/view?usp=sharing" },
+    { name:"Internship Completion Certificate", org:"Secure Meters Ltd.", date:"2026", link:"https://drive.google.com/file/d/1N1_gypt6cgzQCuePBW7KhmIxcK3TtQEp/view?usp=sharing" },
     { name:"Synergy Hackathon — Winner Certificate", org:"Manipal University Jaipur × HPE", date:"Jul 2026", link:"https://drive.google.com/file/d/1selRsW63suNmcWnCmESvi6BKUF4iIlF8/view?usp=sharing" }
   ]
 };
@@ -622,11 +677,15 @@ function pageAbout(){
     <h2>Academic timeline</h2>
   </div>
   ${DATA.education.map(e => `
-    <div class="edu-item">
-      <div class="dur">${e.dur}</div>
-      <h3>${e.degree}</h3>
-      <div class="school">${e.school}</div>
-      ${e.cgpa ? `<div class="meta">CGPA: <span class="cgpa">${e.cgpa}</span></div>` : ""}
+    <div class="edu-card">
+      <div>
+        <div class="dur">${e.dur}</div>
+        ${e.cgpa ? `<div class="cgpa" style="margin-top:10px; font-size:1.4rem;">${e.cgpa}<span style="color:var(--ink-faint); font-size:0.65rem; display:block; margin-top:2px;">CGPA</span></div>` : ""}
+      </div>
+      <div>
+        <h3>${e.degree}</h3>
+        <div class="school">${e.school}</div>
+      </div>
     </div>
   `).join("")}
   `;
@@ -1146,6 +1205,92 @@ function setupTerminal(){
     }
   });
 }
+
+/* ============ THEME ============ */
+function safeGet(key){ try{ return localStorage.getItem(key); }catch(e){ return null; } }
+function safeSet(key, val){ try{ localStorage.setItem(key, val); }catch(e){} }
+
+function applyTheme(t){
+  document.documentElement.setAttribute("data-theme", t);
+  document.querySelectorAll('#themeToggle button').forEach(b=> b.classList.toggle("active", b.dataset.t===t));
+  safeSet("theme", t);
+}
+function initTheme(){
+  const saved = safeGet("theme");
+  const preferred = saved || (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+  applyTheme(preferred);
+  document.querySelectorAll('#themeToggle button').forEach(b=>{
+    b.addEventListener("click", ()=> applyTheme(b.dataset.t));
+  });
+  const mb = document.getElementById("themeBtnMobile");
+  if(mb){
+    mb.addEventListener("click", ()=>{
+      const cur = document.documentElement.getAttribute("data-theme") || "dark";
+      applyTheme(cur === "dark" ? "light" : "dark");
+    });
+  }
+}
+initTheme();
+
+/* ============ AMBIENT SIDE PANEL (persistent, independent of router) ============ */
+function initSideDeco(){
+  const wrap = document.getElementById("sideDeco");
+  const readout = document.getElementById("decoReadout");
+  if(!wrap || typeof THREE === "undefined") return;
+  readout.innerHTML = `
+    LOCATION <b>Jaipur, RJ, IN</b><br>
+    CGPA <span class="accentv">8.32</span> / 10<br>
+    PROJECTS <span class="accentv">${DATA.projects.length}</span> shipped<br>
+    HACKATHONS <span class="accentv">2</span> won<br>
+    STACK <b>Python · React · RAG</b><br>
+    STATUS <span class="accentv">open to work</span>
+  `;
+  const w = wrap.clientWidth || 280, h = wrap.clientHeight || 800;
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, w/h, 0.1, 100);
+  camera.position.set(0, 0.4, 6.5);
+  const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
+  renderer.setSize(w, h);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+  wrap.insertBefore(renderer.domElement, wrap.firstChild);
+
+  const group = new THREE.Group();
+  scene.add(group);
+  const ring1 = new THREE.Mesh(new THREE.TorusGeometry(1.6, 0.01, 8, 80), new THREE.MeshBasicMaterial({ color:0xC98A3C, transparent:true, opacity:0.5 }));
+  ring1.rotation.x = Math.PI/2.3;
+  group.add(ring1);
+  const ring2 = new THREE.Mesh(new THREE.TorusGeometry(2.1, 0.006, 8, 80), new THREE.MeshBasicMaterial({ color:0x6E6A62, transparent:true, opacity:0.3 }));
+  ring2.rotation.x = Math.PI/2.6;
+  group.add(ring2);
+
+  const dustCount = 60;
+  const dustPos = [];
+  for(let i=0;i<dustCount;i++){
+    dustPos.push(new THREE.Vector3((Math.random()-0.5)*5, (Math.random()-0.5)*8, (Math.random()-0.5)*4));
+  }
+  const dustGeo = new THREE.BufferGeometry().setFromPoints(dustPos);
+  const dustMat = new THREE.PointsMaterial({ color:0xECE9E3, size:0.035, transparent:true, opacity:0.5 });
+  const dust = new THREE.Points(dustGeo, dustMat);
+  scene.add(dust);
+
+  function animate(){
+    requestAnimationFrame(animate);
+    if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+      group.rotation.z += 0.0016;
+      dust.rotation.y += 0.0004;
+    }
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener("resize", ()=>{
+    if(wrap.clientWidth === 0) return;
+    camera.aspect = wrap.clientWidth/wrap.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(wrap.clientWidth, wrap.clientHeight);
+  });
+}
+initSideDeco();
 
 render();
 </script>
